@@ -1,0 +1,23 @@
+{
+  "name": "card3d",
+  "version": "1.0.0",
+  "description": "[![Package Version](https://img.shields.io/hexpm/v/card3d)](https://hex.pm/packages/card3d) [![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://card3d.hexdocs.pm/)",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+  "build": "gleam build && esbuild index.js --bundle --minify --outfile=docs/bundle.js",
+  "serve": "python3 -m http.server 8000 -d docs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  }
+}
