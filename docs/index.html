@@ -20,6 +20,7 @@
     height: 100%;
     overflow: hidden;
     background: #f5f5f5;
+    font-family: system-ui, sans-serif;
     -webkit-tap-highlight-color: transparent;
     -webkit-user-select: none;
     user-select: none;
@@ -29,5 +30,73 @@
     outline: none;
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
+  }
+
+  /* ---------- Pantalla de combinación ---------- */
+  .lock-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f5f5;
+    transition: opacity 0.4s ease;
+  }
+  .lock-overlay.lock-hide { opacity: 0; pointer-events: none; }
+
+  .lock-box {
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 16px;
+    width: min(320px, 88vw);
+    box-sizing: border-box;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  }
+  .lock-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px;
+    margin-bottom: 18px;
+    font-size: 32px;
+    text-align: center;
+    letter-spacing: 0.4em;
+    background: #f0f0f0;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    color: #111;
+    outline: none;
+    caret-color: transparent;
+  }
+  .lock-keys {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .lock-key {
+    padding: 16px 0;
+    font-size: 24px;
+    font-family: inherit;
+    background: #f0f0f0;
+    color: #111;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    touch-action: manipulation;
+    transition: background 0.1s, transform 0.1s;
+  }
+  .lock-key:hover { background: #e6e6e6; }
+  .lock-key:active { background: #d8d8d8; transform: scale(0.96); }
+  .lock-key-enter { background: #111; color: #fff; }
+  .lock-key-enter:hover { background: #333; }
+  .lock-key-enter:active { background: #000; }
+
+  /* Combinación incorrecta: borde rojo + sacudida */
+  .lock-error .lock-input { border-color: #e03131; }
+  .lock-error .lock-box { animation: lock-shake 0.4s; }
+  @keyframes lock-shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-10px); }
+    40%, 80% { transform: translateX(10px); }
   }
 </style>
