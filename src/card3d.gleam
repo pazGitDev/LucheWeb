@@ -7,10 +7,9 @@ const secret = "250825"
 const max_digits = 6
 
 // ✏️ Textos de los papeles (usa \n para saltos de línea)
-const left_note =
-  "Escribe aquí el mensaje del papel izquierdo.\n\nPuedes usar varias líneas."
+const left_note = "Es una fecha. \n\n ¡Una fecha que te encanta!"
 
-const right_note = "Escribe aquí el mensaje del papel derecho."
+const right_note = "Ocurrió después\n de un beso."
 
 // Cada clic suma media vuelta (180°) al ángulo actual.
 fn next_angle(current: Float) -> Float {
